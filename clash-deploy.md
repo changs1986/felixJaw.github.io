@@ -21,3 +21,15 @@ Execstop=/bin/kill -s QUIT $MAINPI
 [Install]
 WantedBy=multi-user.target
 ```
+
+## 重新加载systemd服务
+```systemctl daemon-reload```
+
+## 开机启动
+```systemctl enable clash```
+
+## 启动
+```systemctl start clash```
+
+## 查看日志看是否正常启动
+```systemctl status clash```
