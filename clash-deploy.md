@@ -1,6 +1,13 @@
 # 玩客云部署clash
 
 ## 下载crash-premium
+[链接](https://downloads.clash.wiki/ClashPremium/)
+选择armv7版本
+
+## 处理crash-premium
+gzip -d clash-linux-armv7-2023.08.17.gz
+sudo chmod +x ./clash-linux-armv7
+sudo mv ./clash-linux-armv7 /usr/local/bin/clash
 
 ## 设置systemd服务
 ```vim /etc/systemd/system/clash.service```
@@ -14,8 +21,8 @@ Wants=network-online.target
 [Service]
 Type=simple
 User=root
-Execstart=/home/felix/clash-linux-armv7-2023.08.17
-ExecReload=/bin/kill -s QUIT $MAINPID &/home/felix/clash-linux-armv7-2023.08.17
+ExecStart=/usr/local/bin/clash
+ExecReload=/bin/kill -s QUIT $MAINPID & /usr/local/bin/clash
 Execstop=/bin/kill -s QUIT $MAINPI
 
 [Install]
