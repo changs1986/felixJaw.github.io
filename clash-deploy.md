@@ -7,7 +7,7 @@
 
 ```
 [Unit]
-Description=Clash、
+Description=Clash
 After=network-online.target
 Wants=network-online.target
 
